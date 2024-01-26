@@ -31,22 +31,33 @@
       {
         "imports": {
           "@pax/root-config": "//localhost:9000/pax-root-config.js",
-          "@pax/pax-login": "//localhost:8080/pax-pax-login.js"
+          "@pax/pax-login": "//localhost:8080/pax-pax-login.js",
+          "@pax/pax-associado": "//localhost:8001/pax-pax-associado.js"
         }
       }
     </script>
     <% } %>
-
-    <!--
-    If you need to support Angular applications, uncomment the script tag below to ensure only one instance of ZoneJS is loaded
-    Learn more about why at https://single-spa.js.org/docs/ecosystem-angular/#zonejs
-  -->
-    <!-- <script src="https://cdn.jsdelivr.net/npm/zone.js@0.11.3/dist/zone.min.js"></script> -->
-
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
     <% if (isLocal) { %>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
+    <script>
+      // Adiciona manipuladores de erro para cada importação
+      SystemJS.import("@pax/root-config").catch((error) => {
+        console.error("Erro ao importar @pax/root-config:", error);
+        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
+      });
+
+      SystemJS.import("@pax/pax-login").catch((error) => {
+        console.error("Erro ao importar @pax/pax-login:", error);
+        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
+      });
+
+      SystemJS.import("@pax/pax-associado").catch((error) => {
+        console.error("Erro ao importar @pax/pax-associado:", error);
+        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
+      });
+    </script>
     <% } else { %>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>

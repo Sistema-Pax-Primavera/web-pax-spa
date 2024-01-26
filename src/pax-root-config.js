@@ -1,19 +1,17 @@
 import { registerApplication, start } from "single-spa";
 
-// registerApplication({
-//   name: "@single-spa/welcome",
-//   app: () =>
-//     System.import(
-//       "https://unpkg.com/single-spa-welcome/dist/single-spa-welcome.js"
-//     ),
-//   activeWhen: ["/"],
-// });
-
 registerApplication({
   name: "@pax/pax-login",
   app: () => System.import("@pax/pax-login"),
   activeWhen: ["/pax-primavera"]
 });
+
+// registerApplication({
+//   name: "@pax/pax-associado",
+//   app: () => System.import("@pax/pax-associado"),
+//   // activeWhen: ["/pax-primavera/home"]
+//   activeWhen: (location) => location.pathname.startsWith('/pax-primavera/associado'),
+// });
 
 start({
   urlRerouteOnly: true,
