@@ -15,8 +15,9 @@
       {
         "imports": {
           "single-spa": "https://cdn.jsdelivr.net/npm/single-spa@5.9.0/lib/system/single-spa.min.js",
-          "react": "https://unpkg.com/react@18/umd/react.production.min.js",
-          "react-dom": "https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"
+          "react": "https://unpkg.com/react@18.2.0/umd/react.production.min.js",
+          "react-dom": "https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js",
+          "react-router-dom": "https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js"
         }
       }
     </script>
@@ -32,7 +33,8 @@
         "imports": {
           "@pax/root-config": "//localhost:9000/pax-root-config.js",
           "@pax/pax-login": "//localhost:8080/pax-pax-login.js",
-          "@pax/pax-associado": "//localhost:8001/pax-pax-associado.js"
+          "@pax/pax-home": "//localhost:8081/pax-pax-home.js",
+          "@pax/pax-associado": "//localhost:8082/pax-pax-associado.js"
         }
       }
     </script>
@@ -41,23 +43,7 @@
     <% if (isLocal) { %>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.js"></script>
-    <script>
-      // Adiciona manipuladores de erro para cada importação
-      SystemJS.import("@pax/root-config").catch((error) => {
-        console.error("Erro ao importar @pax/root-config:", error);
-        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
-      });
 
-      SystemJS.import("@pax/pax-login").catch((error) => {
-        console.error("Erro ao importar @pax/pax-login:", error);
-        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
-      });
-
-      SystemJS.import("@pax/pax-associado").catch((error) => {
-        console.error("Erro ao importar @pax/pax-associado:", error);
-        // Adicione lógica adicional, como exibir uma mensagem amigável ao usuário
-      });
-    </script>
     <% } else { %>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/system.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/systemjs@6.8.3/dist/extras/amd.min.js"></script>
