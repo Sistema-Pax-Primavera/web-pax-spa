@@ -3,8 +3,13 @@ import { registerApplication, start } from "single-spa";
 registerApplication({
   name: "@pax/pax-login",
   app: () => import("@pax/pax-login"),
-  activeWhen: (location) => location.pathname === '/login',
-  //activeWhen: ["/pax-primavera"]
+  activeWhen: (location) => {
+    if (location.pathname === '/') {
+      window.location.href = '/login';
+      return false;
+    }
+    return location.pathname === '/login';
+  }
 });
 
 registerApplication({
@@ -20,12 +25,6 @@ registerApplication({
   activeWhen: ["/associado"],
 });
 
-// registerApplication({
-//   name: "@pax/pax-associado",
-//   app: () => System.import("@pax/pax-associado"),
-//   activeWhen: ["/associado"]
-//   // activeWhen: (location) => location.pathname.startsWith('/pax-primavera/associado'),
-// });
 
 start({
   urlRerouteOnly: true,
