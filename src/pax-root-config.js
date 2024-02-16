@@ -25,6 +25,12 @@ registerApplication({
   activeWhen: ["/associado"],
 });
 
+registerApplication({
+  name: "@pax/pax-venda",
+  app: () => import("@pax/pax-venda"),
+  //activeWhen: (location) => location.pathname === '/pax-primavera',
+  activeWhen: ["/vendas"],
+});
 
 start({
   urlRerouteOnly: true,
