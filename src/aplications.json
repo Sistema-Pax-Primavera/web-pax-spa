@@ -1,0 +1,32 @@
+{
+    "applications": [
+        {
+            "name": "@pax/pax-login",
+            "package": "@pax/pax-login",
+            "activeWhen": "/",
+            "exact": true
+        },
+        {
+            "name": "@pax/pax-home",
+            "package": "@pax/pax-home",
+            "activeWhen": "/pax-primavera",
+            "exact": false
+        },
+        {
+            "name": "@pax/pax-associado",
+            "package": "@pax/pax-associado",
+            "activeWhen": "/associado",
+            "exact": false
+        },
+        {
+            "name": "@pax/pax-venda",
+            "package": "@pax/pax-venda",
+            "activeWhen": "/vendas",
+            "exact": false
+        }
+    ],
+    "urls":{
+        "url":"https://run.mocky.io/v3/d2c61dab-6892-434c-8dac-22aabf9c42cb",
+        "url_Delete":"https://designer.mocky.io/manage/delete/d2c61dab-6892-434c-8dac-22aabf9c42cb/SGE4xsuNKQb4opOOSxSXn4EsyeHPWOA3xrZX"
+    }
+}

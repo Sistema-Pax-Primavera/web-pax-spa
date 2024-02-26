@@ -1,5 +1,6 @@
 {
   "name": "@pax/root-config",
+  "homepage": "sistemadourados.ddns.net:/pax-primavera",
   "scripts": {
     "start": "webpack serve --port 9000 --env isLocal",
     "lint": "eslint src --ext js",
@@ -38,6 +39,8 @@
   "dependencies": {
     "@types/jest": "^27.0.1",
     "@types/systemjs": "^6.1.1",
-    "single-spa": "^5.9.3"
+    "react-router-dom": "^6.22.1",
+    "single-spa": "^5.9.3",
+    "systemjs": "^6.14.3"
   }
 }

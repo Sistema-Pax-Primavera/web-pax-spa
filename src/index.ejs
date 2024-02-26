@@ -45,6 +45,18 @@
         }
       }
     </script>
+    <% } else { %>
+    <script type="systemjs-importmap">
+      {
+        "imports": {
+          "@pax/root-config": "//sistemadourados.ddns.net:65400/pax-root-config.js",
+          "@pax/pax-login": "//sistemadourados.ddns.net:65401/pax-pax-login.js",
+          "@pax/pax-home": "//sistemadourados.ddns.net:65402/pax-pax-home.js",
+          "@pax/pax-associado": "//sistemadourados.ddns.net:65403/pax-pax-associado.js",
+          "@pax/pax-venda": "//sistemadourados.ddns.net:65404/pax-pax-venda.js"
+        }
+      }
+    </script>
     <% } %>
     <script src="https://cdn.jsdelivr.net/npm/import-map-overrides@2.2.0/dist/import-map-overrides.js"></script>
     <% if (isLocal) { %>
