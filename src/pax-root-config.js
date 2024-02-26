@@ -1,31 +1,44 @@
 import { registerApplication, start } from "single-spa";
-import jsonData from '../src/aplications.json';
 
-jsonData.applications.forEach(app => {
-  if (app.name === "@pax/pax-login") {
-    // Tratamento especial para a aplicação de login
-    registerApplication({
-      name: app.name,
-      app: () => System.import(app.package),
-      activeWhen: (location) => {
-        if (location.pathname === '/') {
-          window.location.href = '/login';
-          return false;
-        }
-        return location.pathname === '/login';
-      }
-    });
-  } else {
-    // Registro normal para outras aplicações
-    registerApplication({
-      name: app.name,
-      app: () => System.import(app.package),
-      activeWhen: app.exact
-        ? (location) => location.pathname === app.activeWhen
-        : [app.activeWhen],
-    });
+registerApplication({
+  name: "@pax/pax-login",
+  app: () => import("@pax/pax-login"),
+  activeWhen: (location) => {
+    if (location.pathname === '/') {
+      window.location.href = '/login';
+      return false;
+    }
+    return location.pathname === '/login';
   }
 });
+
+registerApplication({
+  name: "@pax/pax-home",
+  app: () => import("@pax/pax-home"),
+  activeWhen: ["/pax-primavera"],
+});
+
+registerApplication({
+  name: "@pax/pax-associado",
+  app: () => import("@pax/pax-associado"),
+  //activeWhen: (location) => location.pathname === '/pax-primavera',
+  activeWhen: ["/associado"],
+});
+
+registerApplication({
+  name: "@pax/pax-venda",
+  app: () => import("@pax/pax-venda"),
+  //activeWhen: (location) => location.pathname === '/pax-primavera',
+  activeWhen: ["/vendas"],
+});
+
+registerApplication({
+  name: "@pax/pax-cobranca",
+  app: () => import("@pax/pax-cobranca"),
+  //activeWhen: (location) => location.pathname === '/pax-primavera',
+  activeWhen: ["/cobranca"],
+});
+
 start({
   urlRerouteOnly: true,
 });
