@@ -39,6 +39,13 @@ registerApplication({
   activeWhen: ["/cobranca"],
 });
 
+registerApplication({
+  name: "@pax/pax-cadastro",
+  app: () => import("@pax/pax-cadastro"),
+  //activeWhen: (location) => location.pathname === '/pax-primavera',
+  activeWhen: ["/cadastro"],
+});
+
 start({
   urlRerouteOnly: true,
 });
