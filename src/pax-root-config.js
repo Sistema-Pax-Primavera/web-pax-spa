@@ -28,22 +28,31 @@ registerApplication({
 registerApplication({
   name: "@pax/pax-venda",
   app: () => import("@pax/pax-venda"),
-  //activeWhen: (location) => location.pathname === '/pax-primavera',
   activeWhen: ["/vendas"],
 });
 
 registerApplication({
   name: "@pax/pax-cobranca",
   app: () => import("@pax/pax-cobranca"),
-  //activeWhen: (location) => location.pathname === '/pax-primavera',
   activeWhen: ["/cobranca"],
 });
 
 registerApplication({
   name: "@pax/pax-cadastro",
   app: () => import("@pax/pax-cadastro"),
-  //activeWhen: (location) => location.pathname === '/pax-primavera',
   activeWhen: ["/cadastro"],
+});
+
+registerApplication({
+  name: "@pax/pax-suporte",
+  app: () => import("@pax/pax-suporte"),
+  activeWhen: ["/suporte"],
+});
+
+registerApplication({
+  name: "@pax/pax-boletos",
+  app: () => import("@pax/pax-boletos"),
+  activeWhen: ["/boletos"],
 });
 
 start({
