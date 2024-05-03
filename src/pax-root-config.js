@@ -55,6 +55,12 @@ registerApplication({
   activeWhen: ["/boletos"],
 });
 
+registerApplication({
+  name: "@pax/pax-parcelas",
+  app: () => import("@pax/pax-parcelas"),
+  activeWhen: ["/parcelas"],
+});
+
 start({
   urlRerouteOnly: true,
 });
