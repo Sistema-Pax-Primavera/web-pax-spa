@@ -32,6 +32,12 @@ registerApplication({
 });
 
 registerApplication({
+  name: "@pax/pax-financeiro",
+  app: () => import("@pax/pax-financeiro"),
+  activeWhen: ["/financeiro"],
+});
+
+registerApplication({
   name: "@pax/pax-cobranca",
   app: () => import("@pax/pax-cobranca"),
   activeWhen: ["/cobranca"],
@@ -60,6 +66,19 @@ registerApplication({
   app: () => import("@pax/pax-parcelas"),
   activeWhen: ["/parcelas"],
 });
+
+// registerApplication({
+//   name: "@pax/pax-ranking",
+//   app: () => import("@pax/pax-relatorio"),
+//   activeWhen: ["/gerencial"],
+// });
+
+registerApplication({
+  name: "@pax/pax-ranking",
+  app: () => import("@pax/pax-ranking"),
+  activeWhen: (location) => { return location.pathname === '/ranking-tv' }
+});
+
 
 start({
   urlRerouteOnly: true,
