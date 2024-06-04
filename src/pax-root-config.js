@@ -67,17 +67,19 @@ registerApplication({
   activeWhen: ["/parcelas"],
 });
 
-// registerApplication({
-//   name: "@pax/pax-ranking",
-//   app: () => import("@pax/pax-relatorio"),
-//   activeWhen: ["/gerencial"],
-// });
+registerApplication({
+  name: "@pax/pax-relatorio",
+  app: () => import("@pax/pax-relatorio"),
+  activeWhen: ["/relatorios"],
+});
+
 
 registerApplication({
   name: "@pax/pax-ranking",
   app: () => import("@pax/pax-ranking"),
   activeWhen: (location) => { return location.pathname === '/ranking-tv' }
 });
+
 
 
 start({
